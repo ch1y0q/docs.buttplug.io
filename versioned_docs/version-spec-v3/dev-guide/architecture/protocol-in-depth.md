@@ -2,7 +2,7 @@
 
 At the core of Buttplug is the Buttplug Protocol. This protocol is defined in the [Buttplug Spec](https://buttplug-spec.docs.buttplug.io).
 
-:::tip Why is there a protocol specification?
+:::tip[Why is there a protocol specification?]
 
 It may seem a little silly to go to such formal lengths for a system for controlling sex toys, and it admittedly does introduce a level of formality that isn't seen outside of larger systems like web browsers. However, this serves a couple of functions:
 
@@ -10,6 +10,7 @@ It may seem a little silly to go to such formal lengths for a system for control
 - One of the goals of Buttplug is forward-compatibility. If an app implements Buttplug but then doesn't continue development, Buttplug Servers should be able to adapt the older protocol version to new messages and hardware. The spec creates a record to work with for these conversions, so we can understand what was happening when the app was originally developed, and what has changed since.
 
 Forward compatibility is important here because when people find sex software they like, they will use it *forever*. There are VB6 and Java sex apps from the late 90's/early 00's out there still seeing use these days!
+
 :::
 
 ## Messages
@@ -58,7 +59,7 @@ Adding new functionality to Buttplug means adding new message, so when Buttplug 
 
 Message additions are a rather complicated process. Message addition procedure is outlined in the Inflating Buttplug section, but for now, just knowing these terms is enough so you can translate what project contributors are talking about when they discuss the spec and new messages.
 
-:::tip Can Clients and Servers of different spec versions talk to each other?
+:::tip[Can Clients and Servers of different spec versions talk to each other?]
 
 Yes, in some cases.
 

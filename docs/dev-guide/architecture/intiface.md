@@ -7,7 +7,7 @@ When Buttplug is referred to in this document, it's in relation to the library. 
 
 For the rest of this document, you'll need to be familiar with Intiface Engine and Intiface Central, which we'll cover below.
 
-:::tip Wait, Intiface®? As in Registered Trademark?
+:::tip[Wait, Intiface®? As in Registered Trademark?]
 
 Yes, Intiface® is actually a registered trademark of Nonpolynomial Labs, LLC. This workmark was
 registered to protect the app on app stores, since we're an open source app. It's not meant to be

@@ -27,7 +27,7 @@ handle matching message pairs without the need for the Id. In remote situations,
 network connections, it is expected that the client will establish a sane usage of the Id field to
 orchestrate messaging.
 
-:::warning Message Ordering Is Not Guaranteed
+:::warning[Message Ordering Is Not Guaranteed]
 
 The Buttplug protocol does not guarantee message ordering. Client-generated message IDs are used for
 matching requests to responses, not for ensuring execution order. If a client sends multiple
@@ -67,7 +67,7 @@ implement, or to contract the Buttplug designers to build it for them.
 
 For reference implementations of the Buttplug protocol, we use JSON for serialization. 
 
-:::tip Why is the JSON format for Buttplug messages so weird?
+:::tip[Why is the JSON format for Buttplug messages so weird?]
 
 The format of Buttplug json messages mimics the output from Rust's
 [serde-json](https://github.com/serde-rs/json) crate. This is due to the first implementation of
@@ -124,7 +124,7 @@ will need to be reflected across systems and implementations. So far, these upda
 Requests for new messages can be submitted to [the Buttplug Github Issue
 Tracker](https://github.com/buttplugio/buttplug/issues).
 
-:::tip Version 0 Issues
+:::tip[Version 0 Issues]
 
 Version 0 of the Message Spec was implemented without much thought for the future development of Buttplug. While very few client applications still exist for use with Version 0, backward compatibility implementation is possible.
 

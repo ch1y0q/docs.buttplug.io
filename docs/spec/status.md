@@ -62,7 +62,7 @@ or processing error on the server.
   * 3: ERROR\_MSG - A message parsing or permission error occurred.
   * 4: ERROR\_DEVICE - A command sent to a device returned an error.
 
-:::tip Error Codes Are For Logging, Not Recovery
+:::tip[Error Codes Are For Logging, Not Recovery]
 
 Most Buttplug errors are unrecoverable at the protocol level. Error codes are primarily intended for
 logging and user notification, not for programmatic recovery. For example, ERROR\_DEVICE may

@@ -7,7 +7,7 @@ Messages that convey information about devices currently connected to the system
 
 **Description:** Server reply to a client request for a device list, or sent as an event when a device is connected or disconnected.
 
-:::tip Detecting Device Changes
+:::tip[Detecting Device Changes]
 
 In Spec V4, the `DeviceAdded` and `DeviceRemoved` messages were removed in favor of always sending
 the complete `DeviceList`. Clients are expected to maintain their own copy of the device list and
@@ -79,7 +79,7 @@ simplifies the protocol while giving clients full flexibility in how they track 
         * _Value_ (Range, array of 2 signed 32-bit integer values): Range of values that may be
           received from the input, if known.
 
-:::tip Range Semantics
+:::tip[Range Semantics]
 
 All ranges in Buttplug (for both Output and Input values) are:
 - **Inclusive on both ends**: A range of `[0, 20]` means values 0 through 20 are all valid
@@ -88,7 +88,7 @@ All ranges in Buttplug (for both Output and Input values) are:
 
 :::
 
-:::tip Why are the DeviceIndex and FeatureIndex repeated as map keys and object fields?
+:::tip[Why are the DeviceIndex and FeatureIndex repeated as map keys and object fields?]
 
 DeviceIndex and FeatureIndex are how client implementations refer to a device in InputCmd and OutputCmd messages. They are the main identifiers for Buttplug. In most client implementations we've built so far, we end up using Map\<number, object\> types to represent Devices and Features, mapping indexes to the related objects. However, for the objects themselves, it tends be to handy for the object to know its index when forming device control messages.
 

@@ -2,7 +2,7 @@
 
 At the core of Buttplug is the Buttplug Protocol. This protocol is defined in the [Buttplug API Spec](https://buttplug-spec.docs.buttplug.io).
 
-:::tip Why is there a protocol specification?
+:::tip[Why is there a protocol specification?]
 
 We used to call this a "standard" but have backed off to calling it an API, as we've found that the extra formality and pomp/circumstance around calling it a "standard" just makes life difficult.
 
@@ -22,6 +22,7 @@ We still keep a protocol spec, which serves a couple of functions:
   since.
 
 Forward compatibility is important here because when people find sex software they like, they will use it *forever*. There are VB6 and Java sex apps from the late 90's/early 00's out there still seeing use these days!
+
 :::
 
 ## Messages
@@ -77,7 +78,7 @@ Once the spec changes, we then modify the Client API and release a new major ver
 
 Message and type additions are rather complicated processes. Addition procedure is outlined in the Inflating Buttplug section, but for now, just knowing these terms is enough so you can translate what project contributors are talking about when they discuss the spec and new messages.
 
-:::tip Can Clients and Servers of different spec versions talk to each other?
+:::tip[Can Clients and Servers of different spec versions talk to each other?]
 
 Yes, in some cases.
 

@@ -11,13 +11,13 @@ While configuration files will be the way this is done 99% of the time, both met
 
 ## Configuring Devices via the Device Setup API
 
-:::info Rust Only section
+:::info[Rust Only section]
 
 As this requires working with the Buttplug Server, the content covered in this section is currently only available via the Rust implementation of buttplug
 
 :::
 
-:::warning Not Yet Written
+:::warning[Not Yet Written]
 
 Skipping writing this section for now so I can get the file sections written up. I highly doubt anyone uses this anyways.
 
@@ -25,13 +25,13 @@ Skipping writing this section for now so I can get the file sections written up.
 
 ## Configuring Devices via the Device Configuration File
 
-:::caution Feature Not Standardized
+:::caution[Feature Not Standardized]
 
 The following feature is an aspect of the Buttplug Reference implementation, and is not part of the specification for the protocol. Therefore, this information may change in relation to revisions of the Buttplug Library rather than the protocol specification.
 
 :::
 
-:::caution Section Incomplete
+:::caution[Section Incomplete]
 
 This section will cover the basics of device configurations for now, but doesn't go into the specifics of identifier blocks for device enumeration, or message capability definition.
 
@@ -167,7 +167,7 @@ The UDCF allows customizations on protocols and custom device configurations. It
 
 ### UDCF Protocol Extensions
 
-:::caution Section Incomplete
+:::caution[Section Incomplete]
 
 This section is pretty much specifically for OSR-2/SR-6 users, who can continue to wait.
 

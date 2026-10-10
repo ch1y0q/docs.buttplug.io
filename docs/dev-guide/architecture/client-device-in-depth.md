@@ -28,7 +28,7 @@ Features contain:
 
 Not all devices will have both inputs and outputs, many will just have outputs, and likely a single output at that.
 
-:::tip What kind of units will Outputs and Inputs take?
+:::tip[What kind of units will Outputs and Inputs take?]
 
 This is, unfortunately, one of the hardest parts of dealing with the type of hardware our library provides access to. There are almost never "units", just "steps". Vibrators and fucking machines usually just come with an a number of set speeds they run at with no relation to power or frequency. Strokers may have encoder ticks but usually don't correspond to any sort of actual length measurement. The best we can do is provide the number of steps we know of that the device provides.
 
@@ -55,7 +55,7 @@ Depending on language capabilities, there may also be a generic way to put toget
 
 At the message level, device features accept commands only in raw steps. Client libraries typically support break these values out into two different types.
 
-:::tip Objectivity and Pseudocode Ahead
+:::tip[Objectivity and Pseudocode Ahead]
 
 We haven't gotten into examples yet, so all code in this section is just random pseudocode to give you an idea of how things *might* work in the implementation you're using. There's no telling whether the author of the client library you're using actually does things this way, it's just how we as the buttplug core dev team write our clients.
 
@@ -188,7 +188,7 @@ Subscription events fire whenever the sensor value changes, which may be many ti
 
 See the [Input Types in the Spec](../../spec/input#inputtype) for the complete list.
 
-:::warning Sensor Values Are Not Standardized
+:::warning[Sensor Values Are Not Standardized]
 
 Sensor readings (especially pressure) are **not in standardized units**. A pressure reading of "200" on one device has no relation to "200" on another device. If your application requires meaningful values (like actual pressure in kPa), you must implement per-device calibration at the application level.
 

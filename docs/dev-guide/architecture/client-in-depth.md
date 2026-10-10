@@ -52,7 +52,7 @@ In protocol V4, the server sends the complete device list on any change. Client 
 
 Note that ScanningFinished does **not** mean no devices were found. Scanning may complete successfully with or without discovering devices. Some connection types (like Bluetooth) may continue finding devices after the initial scan completes.
 
-:::tip Scanning Finished is Weird
+:::tip[Scanning Finished is Weird]
 
 The problem with ScanningFinished is that it's really only used in a couple of situations. Buttplug will happily scan forever, but also runs in contexts where that's not possible. For instance, when scanning for Bluetooth in a WASM context, there's a time limit on scanning, and scans are *required* to be kicked off by the user via UI interaction.
 
@@ -88,7 +88,7 @@ Every message sent to the server includes an `Id` field. Client libraries typica
 
 This enables **out-of-order responses** - if you send commands to devices A and B, B might respond before A. The ID tracking ensures each response reaches the correct caller.
 
-:::tip You Likely Won't Need to Manage IDs
+:::tip[You Likely Won't Need to Manage IDs]
 
 In the reference implementations, this is handled internally by the client library. You won't see message IDs when using the client API - they're mentioned here to help you understand how the system works if you're debugging connection issues or building your own client.
 
@@ -137,7 +137,7 @@ Most Buttplug errors require user intervention (reconnect the device, restart th
 
 ## Connector Types in Practice
 
-:::tip Objectivity and Pseudocode Ahead
+:::tip[Objectivity and Pseudocode Ahead]
 
 The examples in this section are pseudocode to illustrate concepts. Check your specific client library's documentation for actual API usage.
 

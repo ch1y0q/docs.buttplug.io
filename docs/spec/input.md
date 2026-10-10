@@ -54,7 +54,7 @@ the application level.**
   * Ok message with matching Id on successful request
 * Error message on value/message/device error.
 
-:::tip Subscription Lifecycle
+:::tip[Subscription Lifecycle]
 
 - **Unlimited concurrent subscriptions**: A client may have any number of active subscriptions across different devices and features
 - **Duplicate subscriptions are ignored**: If a client sends a Subscribe command for a feature it is already subscribed to, the request is acknowledged with Ok but no additional subscription is created
@@ -183,7 +183,7 @@ sequenceDiagram
 
 InputType denotes data that a device should provide back to us, via some sort of sensor. It also corresponds to the format of the data we will receive in the InputReading message.
 
-:::tip Possible Upcoming Input Types
+:::tip[Possible Upcoming Input Types]
 
 While sensor input has been in Buttplug since the v2 spec in one way or another, it's never been built in an expandable way until now. We're keeping things low key for the first release as we figure out how this is going to work, but future input types may include:
 
@@ -203,7 +203,7 @@ While sensor input has been in Buttplug since the v2 spec in one way or another,
 
 **Device Examples**: Anything with a battery we can read. A fair amount of bluetooth devices support this, as do XBox controllers.
 
-:::tip No Charging State
+:::tip[No Charging State]
 
 The Battery input type reports only the current charge level, not whether the device is currently
 charging. This is intentional: devices with rechargeable batteries are assumed to be non-functional

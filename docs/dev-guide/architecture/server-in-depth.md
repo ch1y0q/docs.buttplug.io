@@ -28,7 +28,7 @@ The Ping Manager is an optional mechanism that can help detect unresponsive clie
    - Stops all devices immediately
    - Cleans up all sensor subscriptions
 
-:::tip When Is Ping Useful?
+:::tip[When Is Ping Useful?]
 
 For **stateful transports** like WebSocket or TCP, the ping system is often redundant. If a client crashes, the transport layer detects the connection drop and notifies the server, which then stops devices automatically. The connection state itself provides crash detection.
 

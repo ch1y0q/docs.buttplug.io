@@ -23,7 +23,7 @@ cause issues (i.e. someone driving a vibrator and a fucking machine with the sam
 Mitigation for that type of issue may be UX related versus system/protocol related, by letting users
 set speed limits and ranges for devices.
 
-:::tip What happened to Subcommands?
+:::tip[What happened to Subcommands?]
 
 In Buttplug Spec v1-v3, our generic commands took multiple "subcommands", allowing developers to send updates to multiple features in the same message, possibly for update at the same time.
 
@@ -51,7 +51,7 @@ As of v4, we move to 1 command per message. This will now require extra logic in
 * Ok message with matching Id on successful request.
 * Error message on value/message/device error.
 
-:::tip Device Disconnect During Command
+:::tip[Device Disconnect During Command]
 
 If a device disconnects while a command is being processed, the server will return an Error message.
 The exact error depends on the connection system the device uses (Bluetooth, USB, etc.), but will
@@ -289,7 +289,7 @@ it falls within the inclusive _Value_ range advertised for that OutputType in De
 
 **Description**: Sets the brightness value of an LED. If Value maximum is 1, can be considered to simply be an off/on switch. Different color LED control (for RGB devices) will show up as multiple LED features, with color in the feature description. 0 always denotes turning off the LED. Valid brightness values are within the _Value_ range advertised in DeviceList, usually `[0, x]`. This is encoded as _Led_ to handle the way most implementation languages expect class casing.
 
-:::tip Why is this Led and not LED?
+:::tip[Why is this Led and not LED?]
 
 Because a LOT of programming languages hate multiple capital letters next to each other in container names, so we just call it Led. Remember, this is just the line protocol, you can call it whatever you want in your client API methods.
 

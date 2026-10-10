@@ -1,6 +1,6 @@
 # The Scalar Command
 
-:::warning Section not finished (or started)
+:::warning[Section not finished (or started)]
 
 To write:
 

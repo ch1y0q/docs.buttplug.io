@@ -61,7 +61,7 @@ Now, the not so simple case.
 
 Let's add Device C, a stroker. To use Device C with the same application as Device A and Device B, the generic vibration speed command has to be translated into some facsimile that is valid for a stroker. While this is most likely not tractable for a global solution, the goal of Buttplug is to make explorations of ideas like this accessible and easy to play with.
 
-:::warning Hardware Limitations
+:::warning[Hardware Limitations]
 
 The devices Buttplug supports are consumer-grade products with limited capabilities. The protocol
 cannot provide certain features because the underlying hardware simply does not support them:
@@ -120,7 +120,7 @@ what else.
 
 One of the hardest problems in Computer Science is naming things. I just stopped trying to name the thing and selected a name and here we are. Much like the other hard problems in Computer Science, I fully expect this to come back to bite me in the ass at some point.
 
-:::tip Just to make sure this is clear: THIS WORKS FOR MORE THAN BUTTPLUGS
+:::tip[Just to make sure this is clear: THIS WORKS FOR MORE THAN BUTTPLUGS]
 
 Even though this project is called Buttplug, it does not mean you have to put something in your butt to develop with it or use applications that integrate it. We are not saying you shouldn't, as we condone butt stuff as performed in a safe and sane manner, but it's not a requirement, either.
 
@@ -137,7 +137,7 @@ documentation if at all possible. I don't really expect that anyone will do so, 
 
 Most importantly, I just like putting fancy names on things that also include the word Buttplug.
 
-:::tip 2025 Updates
+:::tip[2025 Updates]
 
 All that said, I've now taken a step back from calling this a _Standard_ to simply a _Protocol_ or
 _API_. Unlike a web browser, there hasn't been a lot of interest or need to reimplement the server

@@ -10,7 +10,7 @@ This means that, for you as a Unity developer trying to integrate with a Buttplu
 
 There's an example Unity project in Buttplug Unity for those wondering what simple interaction with the library looks like from a Unity standpoint.
 
-:::caution More Unity Content Coming, Someday
+:::caution[More Unity Content Coming, Someday]
 
 We've found out the hard way that a lot of Unity devs aren't necessarily .Net flavored C# devs. Buttplug C# relies heavily on things like the C# Async system and other components that may be new to Unity developers. At some point in the future, we are hoping to feature more information about using Buttplug with Unity in this guide, to better describe how to integrate buttplug with games.
 

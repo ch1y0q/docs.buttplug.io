@@ -1,6 +1,6 @@
 # Device Configuration Handling
 
-:::warning Section not finished (or started)
+:::warning[Section not finished (or started)]
 
 To write:
 

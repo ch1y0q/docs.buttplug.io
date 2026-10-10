@@ -1,6 +1,6 @@
 # Sensor Commands
 
-:::warning Section not finished (or started)
+:::warning[Section not finished (or started)]
 
 To write:
 

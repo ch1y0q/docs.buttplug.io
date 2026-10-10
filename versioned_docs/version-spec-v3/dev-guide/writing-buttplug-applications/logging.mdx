@@ -28,7 +28,7 @@ functionality is exposed to Rust via normal tracing subsystems (for instance, ou
 tracing_subscriber::fmt), or via various language specifics for FFIs (C# and JS have the ability to
 emit log messages as events).
 
-:::tip Temporary FFI Logging Limitations
+:::tip[Temporary FFI Logging Limitations]
 
 At the time of this writing, logging capabilties in FFI instances are somewhat limited. Logging must
 be started manually, can only be set to one level for a session (i.e. if logging is started a "Debug
