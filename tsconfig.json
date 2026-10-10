@@ -1,11 +1,9 @@
 {
   // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": ".",
-    "jsx": "react",
-    "moduleResolution": "node",
-    "module": "CommonJS",
-    "allowJs": true
-  }
+    "baseUrl": null,
+    "types": ["@docusaurus/module-type-aliases", "@docusaurus/theme-classic", "node"]
+  },
+  "exclude": [".docusaurus", "build", "node_modules", "examples"]
 }

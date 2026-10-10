@@ -4292,13 +4292,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/docusaurus@npm:^2.0.9":
-  version: 2.0.9
-  resolution: "@tsconfig/docusaurus@npm:2.0.9"
-  checksum: 10c0/a7ab5fc9d0688b3b2e44414df66ef55ebcbf48eaf9221ac876e1efe48a9ef60f4b2e284147e3e82c29d26620debd3ca33dabc201440e655fca4a6d059c173552
-  languageName: node
-  linkType: hard
-
 "@tybys/wasm-util@npm:^0.10.1":
   version: 0.10.1
   resolution: "@tybys/wasm-util@npm:0.10.1"
@@ -5836,7 +5829,6 @@ __metadata:
     "@docusaurus/tsconfig": "npm:3.10.2"
     "@docusaurus/types": "npm:^3.10.2"
     "@mdx-js/react": "npm:^3"
-    "@tsconfig/docusaurus": "npm:^2.0.9"
     "@types/js-yaml": "npm:^4"
     "@types/react": "npm:^19.2.14"
     autoprefixer: "npm:^10.5.0"
