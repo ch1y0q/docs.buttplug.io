@@ -12,7 +12,7 @@
 
 const { visit, SKIP } = require("unist-util-visit");
 
-/** @type {import('unified').Plugin} */
+/** @type {import('unified').Plugin<[], import('mdast').Root>} */
 function remarkBlogImages() {
   return (tree) => {
     visit(tree, "paragraph", (node, index, parent) => {
@@ -28,6 +28,7 @@ function remarkBlogImages() {
 
       // Keep the original image node so Docusaurus's default remark plugins
       // can resolve the relative URL and handle asset imports normally.
+      /** @type {unknown[]} */
       const figureChildren = [img];
 
       // <figcaption>alt text</figcaption> — only if alt is non-empty
@@ -41,11 +42,16 @@ function remarkBlogImages() {
       }
 
       // <figure>...</figure>
+      /** @type {import('mdast-util-mdx-jsx').MdxJsxFlowElement} */
       const figureNode = {
         type: "mdxJsxFlowElement",
         name: "figure",
         attributes: [],
-        children: figureChildren,
+        // mdast types flow element children as block content, but MDX renders
+        // bare phrasing nodes inside <figure> without a wrapping paragraph.
+        children: /** @type {import('mdast-util-mdx-jsx').MdxJsxFlowElement['children']} */ (
+          figureChildren
+        ),
       };
 
       // Replace the paragraph node with the figure element

@@ -20,11 +20,39 @@ const yaml = require("js-yaml");
 const fs = require("fs");
 const path = require("path");
 
-const plugin = (options) => {
+/**
+ * @typedef {{
+ *   index?: number,
+ *   description?: string,
+ *   output?: Record<string, { value?: number[] }>,
+ *   input?: Record<string, { value?: number[][] }>,
+ * }} Feature
+ *
+ * @typedef {{ identifier?: string | string[], name?: string, features?: Feature[] }} Configuration
+ *
+ * @typedef {{
+ *   communication?: Array<{
+ *     btle?: {
+ *       names?: string[],
+ *       advertised_services?: string[],
+ *       services?: Record<string, Record<string, string>>,
+ *     },
+ *   }>,
+ *   defaults?: { features?: Feature[] },
+ *   configurations?: Configuration[],
+ * }} DeviceConfig
+ *
+ * @typedef {{ config_ref?: string, config_identifier?: string | null }} DeviceConfigFrontmatter
+ */
+
+/** @type {import('unified').Plugin<[], import('mdast').Root>} */
+const plugin = () => {
   const dataDir = path.resolve(__dirname, "..", "data", "device-config");
 
   return (ast, vfile) => {
-    const frontmatter = vfile.data.frontmatter;
+    const frontmatter = /** @type {DeviceConfigFrontmatter | undefined} */ (
+      vfile.data.frontmatter
+    );
     if (!frontmatter || !frontmatter.config_ref) {
       return;
     }
@@ -39,10 +67,12 @@ const plugin = (options) => {
 
     let config;
     try {
-      config = yaml.load(fs.readFileSync(configPath, "utf8"));
+      config = /** @type {DeviceConfig} */ (
+        yaml.load(fs.readFileSync(configPath, "utf8"))
+      );
     } catch (err) {
       console.warn(
-        `[remark-device-config] Failed to parse ${configPath}: ${err.message}`
+        `[remark-device-config] Failed to parse ${configPath}: ${/** @type {Error} */ (err).message}`
       );
       return;
     }
@@ -61,6 +91,9 @@ const plugin = (options) => {
  * Looks for an HTML comment <!-- Auto-populated from device-config-v4 at build time -->
  * or a heading containing "Device Configuration".
  * Falls back to end of document.
+ *
+ * @param {import('mdast').Root} ast
+ * @returns {number}
  */
 function findInsertionPoint(ast) {
   for (let i = 0; i < ast.children.length; i++) {
@@ -89,8 +122,13 @@ function findInsertionPoint(ast) {
 
 /**
  * Build mdast nodes for the device configuration section.
+ *
+ * @param {DeviceConfig} config
+ * @param {string | null} identifier
+ * @returns {import('mdast').RootContent[]}
  */
 function buildDeviceConfigNodes(config, identifier) {
+  /** @type {import('mdast').RootContent[]} */
   const nodes = [];
   const comm = config.communication && config.communication[0];
   const btle = comm && comm.btle;
@@ -103,6 +141,7 @@ function buildDeviceConfigNodes(config, identifier) {
   // BLE Names
   if (btle.names && btle.names.length > 0) {
     nodes.push(heading(3, "BLE Names"));
+    /** @type {import('mdast').PhrasingContent[]} */
     const children = [];
     btle.names.forEach((n, i) => {
       if (i > 0) children.push({ type: "text", value: ", " });
@@ -190,9 +229,8 @@ function buildDeviceConfigNodes(config, identifier) {
         const ids = Array.isArray(c.identifier)
           ? c.identifier.join(", ")
           : c.identifier || "";
-        const featureTypes = (c.features || config.defaults.features || [])
-          .filter((f) => f.output)
-          .flatMap((f) => Object.keys(f.output))
+        const featureTypes = (c.features || config.defaults?.features || [])
+          .flatMap((f) => (f.output ? Object.keys(f.output) : []))
           .join(", ");
         return [c.name || "", ids, featureTypes || "default"];
       });
@@ -217,6 +255,10 @@ function buildDeviceConfigNodes(config, identifier) {
 
 /**
  * Get features for a specific identifier or defaults.
+ *
+ * @param {DeviceConfig} config
+ * @param {string | null} identifier
+ * @returns {Feature[]}
  */
 function getFeatures(config, identifier) {
   if (identifier && config.configurations) {
@@ -237,6 +279,10 @@ function getFeatures(config, identifier) {
 
 /**
  * Filter config to a specific identifier for YAML dump.
+ *
+ * @param {DeviceConfig} config
+ * @param {string} identifier
+ * @returns {DeviceConfig}
  */
 function filterConfigByIdentifier(config, identifier) {
   const filtered = { ...config };
@@ -253,43 +299,53 @@ function filterConfigByIdentifier(config, identifier) {
 
 // --- mdast node constructors ---
 
-function heading(depth, textOrInline) {
-  if (typeof textOrInline === "string") {
-    return { type: "heading", depth, children: [{ type: "text", value: textOrInline }] };
-  }
-  // Already an inline node (from inlineCode)
-  return { type: "heading", depth, children: [textOrInline] };
+/**
+ * @param {import('mdast').Heading['depth']} depth
+ * @param {string} text
+ * @returns {import('mdast').Heading}
+ */
+function heading(depth, text) {
+  return { type: "heading", depth, children: [{ type: "text", value: text }] };
 }
 
-function paragraph(textOrInline) {
-  if (typeof textOrInline === "string") {
-    return { type: "paragraph", children: [{ type: "text", value: textOrInline }] };
-  }
-  // Could be a string with inline nodes already embedded — treat as raw text
-  return { type: "paragraph", children: [{ type: "text", value: String(textOrInline) }] };
+/**
+ * @param {string} text
+ * @returns {import('mdast').Paragraph}
+ */
+function paragraph(text) {
+  return { type: "paragraph", children: [{ type: "text", value: text }] };
 }
 
+/**
+ * @param {unknown} value
+ * @returns {import('mdast').InlineCode}
+ */
 function inlineCode(value) {
   return { type: "inlineCode", value: String(value) };
 }
 
+/**
+ * @param {import('mdast').PhrasingContent[]} items
+ * @returns {import('mdast').List}
+ */
 function list(items) {
   return {
     type: "list",
     ordered: false,
     children: items.map((item) => ({
       type: "listItem",
-      children: [
-        {
-          type: "paragraph",
-          children: [typeof item === "string" ? { type: "text", value: item } : item],
-        },
-      ],
+      children: [{ type: "paragraph", children: [item] }],
     })),
   };
 }
 
+/**
+ * @param {string[]} headers
+ * @param {unknown[][]} rows
+ * @returns {import('mdast').Table}
+ */
 function table(headers, rows) {
+  /** @type {import('mdast').TableRow} */
   const headerRow = {
     type: "tableRow",
     children: headers.map((h) => ({
@@ -297,6 +353,7 @@ function table(headers, rows) {
       children: [{ type: "text", value: h }],
     })),
   };
+  /** @type {import('mdast').TableRow[]} */
   const dataRows = rows.map((row) => ({
     type: "tableRow",
     children: row.map((cell) => ({
@@ -311,6 +368,11 @@ function table(headers, rows) {
   };
 }
 
+/**
+ * @param {string} lang
+ * @param {string} value
+ * @returns {import('mdast').Code}
+ */
 function codeBlock(lang, value) {
   return { type: "code", lang, value: value.trimEnd() };
 }

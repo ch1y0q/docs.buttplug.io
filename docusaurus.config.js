@@ -101,6 +101,7 @@ const config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
+        /** @param {string} existingPath */
         createRedirects(existingPath) {
           // Redirect old /docs/stpihkal/... paths to /stpihkal/...
           if (existingPath.startsWith("/stpihkal")) {
