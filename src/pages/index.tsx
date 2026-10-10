@@ -1,15 +1,32 @@
 import * as React from "react";
+import type { ReactNode } from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import { usePluginData } from "@docusaurus/useGlobalData";
 import Layout from "@theme/Layout";
-import logo from "/img/logo.png";
 import styles from "./index.module.css";
 import ReactMarkdown from "react-markdown";
-import useGlobalData from "@docusaurus/useGlobalData";
+
+type RecentBlogPost = {
+  metadata: {
+    title: string;
+    description: string;
+    date: string;
+    permalink: string;
+  };
+};
+
+type BlogPluginData = {
+  default: {
+    recentPosts: RecentBlogPost[];
+  };
+};
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  const logo = useBaseUrl("/img/logo.png");
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
@@ -104,17 +121,16 @@ function FeaturesSection() {
 }
 
 function NewsSection() {
-  const globalData = useGlobalData();
-  const blogPluginData =
-    globalData?.["docusaurus-plugin-content-blog"]?.["blog"]["default"];
-  const recentPosts = blogPluginData?.recentPosts?.slice(0, 5) || [];
+  const { recentPosts } = (
+    usePluginData("docusaurus-plugin-content-blog", "blog") as BlogPluginData
+  ).default;
 
   return (
     <section className={styles.newsSection}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Latest News</h2>
         <div className={styles.newsContainer}>
-          {recentPosts && recentPosts.length > 0 ? (
+          {recentPosts.length > 0 ? (
             <ul className={styles.newsList}>
               {recentPosts.map((post, idx) => (
                 <li key={idx} className={styles.newsItem}>
@@ -257,8 +273,7 @@ function SupportedHardwareSection() {
   );
 }
 
-export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+export default function Home(): ReactNode {
   return (
     <Layout
       title={`Buttplug.io Intimate Hardware Control Library`}
