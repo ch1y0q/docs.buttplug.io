@@ -1,12 +1,12 @@
-https://docs.buttplug.io/* https://buttplug.io/ 301!
-https://buttplug-spec.docs.buttplug.io/* https://buttplug.io/docs/spec 301!
-https://buttplug-developer-guide.docs.buttplug.io/* https://buttplug.io/docs/dev-guide 301!
-https://stpihkal.docs.buttplug.io/* https://buttplug.io/docs/stpihkal 301!
+https://docs.buttplug.io/* https://buttplug.io/:splat 301!
+https://buttplug-spec.docs.buttplug.io/* https://buttplug.io/:splat 301!
+https://buttplug-developer-guide.docs.buttplug.io/* https://buttplug.io/:splat 301!
+https://stpihkal.docs.buttplug.io/* https://buttplug.io/:splat 301!
 https://faq.docs.buttplug.io/* https://intiface.com/ 301!
 https://how.do.i.get.buttplug.in/* https://intiface.com/ 301!
 https://i.cant.get.buttplug.in/* https://intiface.com/ 301!
 https://faq.buttplug.in/* https://intiface.com/ 301!
-https://how.do.i.make.unity.put.buttplug.in/* https://buttplug.io/docs/dev-guide/cookbook/games/unity 301!
+https://how.do.i.make.unity.put.buttplug.in/* https://buttplug.io/docs/dev-guide/cookbook/games/unity/ 301!
 
 https://youtube.buttplug.io https://www.youtube.com/channel/UCKLmntfj3NmM2E3_LB3qs-w 301!
 https://www.youtube.buttplug.io https://www.youtube.com/channel/UCKLmntfj3NmM2E3_LB3qs-w 301!
@@ -42,3 +42,23 @@ https://spansly.buttplug.io https://fansly.com/buttplugio 301!
 /community/ https://buttplug.io/ 301!
 /apps/ https://awesome.buttplug.io 301!
 /libraries/ https://awesome.buttplug.io 301!
+/intiface https://intiface.com/ 301!
+/documentation /docs/ 301!
+/devices /stpihkal/ 301!
+
+/docs/next /docs/ 301!
+/docs/next/* /docs/:splat 301!
+/docs/stpihkal /stpihkal/ 301!
+/docs/stpihkal/* /stpihkal/:splat 301!
+
+/docs/spec-v3/dev-guide/writing-buttplug-applications/intro/* /docs/spec-v3/dev-guide/intro/:splat 301!
+/docs/dev-guide/cookbook/devices-and-commands/linear-command /docs/spec-v3/dev-guide/cookbook/devices-and-commands/linear-command/ 301!
+/docs/dev-guide/cookbook/devices-and-commands/raw-commands /docs/spec-v3/dev-guide/cookbook/devices-and-commands/raw-commands/ 301!
+/docs/dev-guide/cookbook/devices-and-commands/rotate-command /docs/spec-v3/dev-guide/cookbook/devices-and-commands/rotate-command/ 301!
+/docs/dev-guide/cookbook/devices-and-commands/scalar-command /docs/spec-v3/dev-guide/cookbook/devices-and-commands/scalar-command/ 301!
+/docs/dev-guide/cookbook/devices-and-commands/sensor-commands /docs/spec-v3/dev-guide/cookbook/devices-and-commands/sensor-commands/ 301!
+/docs/dev-guide/writing-buttplug-applications/logging /docs/spec-v3/dev-guide/writing-buttplug-applications/logging/ 301!
+/docs/spec/enumeration /docs/spec-v3/spec/enumeration/ 301!
+/docs/spec/generic /docs/spec-v3/spec/generic/ 301!
+/docs/spec/raw /docs/spec-v3/spec/raw/ 301!
+/docs/spec/sensors /docs/spec-v3/spec/sensors/ 301!

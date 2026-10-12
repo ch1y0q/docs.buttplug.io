@@ -102,14 +102,6 @@ const config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
-        /** @param {string} existingPath */
-        createRedirects(existingPath) {
-          // Redirect old /docs/stpihkal/... paths to /stpihkal/...
-          if (existingPath.startsWith("/stpihkal")) {
-            return ["/docs" + existingPath];
-          }
-          return undefined;
-        },
         redirects: [
           // Redirects for protocols whose old flat URL differs from the new brand directory name
           { from: "/stpihkal/protocols/wevibe", to: "/stpihkal/protocols/we-vibe/" },
