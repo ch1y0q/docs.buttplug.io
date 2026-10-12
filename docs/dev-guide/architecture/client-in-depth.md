@@ -75,7 +75,7 @@ After a disconnect event, all device references should be considered invalid. Yo
 |-------|---------------|------------------|
 | InputReading | Subscribed sensor sends data | Device index, feature index, reading |
 
-Sensor readings arrive as events when you've subscribed to a sensor input. See the [Client Devices](./client-device-in-depth) section for subscription details.
+Sensor readings arrive as events when you've subscribed to a sensor input. See the [Client Devices](./client-device-in-depth.md) section for subscription details.
 
 ## Message ID Tracking
 

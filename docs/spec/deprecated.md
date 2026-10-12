@@ -66,7 +66,7 @@ sequenceDiagram
 ---
 ## DeviceAdded - Spec V0
 
-**Reason for Deprecation:** Superceded by [DeviceList Version 1](device_information#devicelist), which
+**Reason for Deprecation:** Superceded by [DeviceList Version 1](device_information.md#devicelist), which
 provides more information about feature limits of generic messages.
 
 **Introduced In Spec Version:** 0
@@ -819,8 +819,8 @@ sequenceDiagram
 
 **Description:** Causes a device that supports vibration to run specific vibration motors at a
 certain speeds. Devices with multiple vibrator features may take multiple values. The
-[FeatureCount](deprecated#message-attributes-for-deviceaddeddevicelist---spec-v3) attribute for the message in the
-[DeviceList](deprecated#devicelist---spec-v1)/[DeviceAdded](deprecated#deviceadded---spec-v1) message will
+[FeatureCount](deprecated.md#message-attributes-for-deviceaddeddevicelist---spec-v3) attribute for the message in the
+[DeviceList](deprecated.md#devicelist---spec-v1)/[DeviceAdded](deprecated.md#deviceadded---spec-v1) message will
 contain that information.
 
 **Introduced In Spec Version:** 1

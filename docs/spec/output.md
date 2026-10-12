@@ -258,7 +258,7 @@ it falls within the inclusive _Value_ range advertised for that OutputType in De
 
 **Introduced In Spec Version:** 4
 
-**Description**: Controls temperature for devices with heating or cooling elements. The value range is signed to support both heating (positive values) and cooling (negative values), with 0 denoting neutral/off. It will be vanishingly rare that we have information about the exact temperature a device can reach, so this will normally be some number of "temperature steps" rather than degrees (see [note on sensor units](./input#sensor-units-are-not-standardized)). Valid commands are within the _Value_ range advertised in DeviceList, which may be `[-x, x]` for devices supporting both heating and cooling, or `[0, x]` for heating-only devices.
+**Description**: Controls temperature for devices with heating or cooling elements. The value range is signed to support both heating (positive values) and cooling (negative values), with 0 denoting neutral/off. It will be vanishingly rare that we have information about the exact temperature a device can reach, so this will normally be some number of "temperature steps" rather than degrees (see [note on sensor units](./input.md#sensor-units-are-not-standardized)). Valid commands are within the _Value_ range advertised in DeviceList, which may be `[-x, x]` for devices supporting both heating and cooling, or `[0, x]` for heating-only devices.
 
 **Device Examples**: N/A
 

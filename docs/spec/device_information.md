@@ -63,7 +63,7 @@ simplifies the protocol while giving clients full flexibility in how they track 
       instantaneously to a goal position, or can move to the goal position over a certain amount of
       time.
       * \[_OutputType_\] (OutputType as String): OutputType is used as a key here, so this would be
-        something like _Vibrate_, _Position_, etc... [Valid types are listed in the OutputCmd page](./output) **IMPORTANT**: Fields for this will change based on the key value. See below for which fields are valid per output type.
+        something like _Vibrate_, _Position_, etc... [Valid types are listed in the OutputCmd page](./output.md) **IMPORTANT**: Fields for this will change based on the key value. See below for which fields are valid per output type.
         * _Value_ (Signed 32-bit integer range): Range of the value this output type can be set to.
           It is assumed that once a value is set, it will not be reset until _OutputCmd_ is called
           again for the same feature. This can be used as a 2-dimensional value, for instance, a rotation feature that has direction may have a range of _[-x, x]_ to denote that it can rotate in 2 different directions.

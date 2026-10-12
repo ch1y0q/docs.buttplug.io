@@ -12,7 +12,7 @@ all messages, even those that have been deprecated.
 ---
 ## DeviceList - Spec V0
 
-**Reason for Deprecation:** Superceded by [DeviceList Version 1](enumeration#devicelist), which
+**Reason for Deprecation:** Superceded by [DeviceList Version 1](enumeration.md#devicelist), which
 provides more information about feature limits of generic messages.
 
 **Description:** Server reply to a client request for a device list.
@@ -66,7 +66,7 @@ sequenceDiagram
 ---
 ## DeviceAdded - Spec V0
 
-**Reason for Deprecation:** Superceded by [DeviceList Version 1](enumeration#devicelist), which
+**Reason for Deprecation:** Superceded by [DeviceList Version 1](enumeration.md#devicelist), which
 provides more information about feature limits of generic messages.
 
 **Introduced In Spec Version:** 0
@@ -108,7 +108,7 @@ sequenceDiagram
 ---
 ## DeviceList - Spec V1
 
-**Reason for Deprecation:** Superceded by [DeviceList Version 3](enumeration#devicelist), which
+**Reason for Deprecation:** Superceded by [DeviceList Version 3](enumeration.md#devicelist), which
 provides optional display name and message timing information, as well as simplifies the format of message attributes.
 
 **Description:** Server reply to a client request for a device list.
@@ -174,7 +174,7 @@ sequenceDiagram
 ---
 ## DeviceAdded - Spec V1
 
-**Reason for Deprecation:** Superceded by [DeviceAdded Version 3](enumeration#deviceadded), which
+**Reason for Deprecation:** Superceded by [DeviceAdded Version 3](enumeration.md#deviceadded), which
 provides more information about feature limits of generic messages, as well as simplifies the format of message attributes.
 
 **Description:** Sent by the server whenever a device is added to the
